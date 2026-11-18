@@ -1,0 +1,24 @@
+id = "local.dbview"
+name = "dbview"
+version = "0.1.0"
+min_herdr_version = "0.9.0"
+platforms = ["linux", "macos"]
+description = "Consola de base de datos: pregunta en lenguaje natural, SQL editable y resultados reales, con cambio rápido de conexión."
+
+# Con `herdr plugin link .` compílalo tú: `cargo build --release`.
+[[build]]
+command = ["cargo", "build", "--release", "--locked"]
+
+[[panes]]
+id = "viewer"
+title = "dbview"
+placement = "popup"
+width = "96%"
+height = "94%"
+command = ["sh", "-c", "exec \"${HERDR_PLUGIN_ROOT}/target/release/herdr-dbview\""]
+
+[[actions]]
+id = "open"
+title = "dbview: consola de base de datos"
+contexts = ["pane", "workspace"]
+command = ["sh", "herdr/open.sh"]
