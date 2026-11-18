@@ -34,6 +34,7 @@ resultados reales, con cambio rápido de conexión. Solo lectura.
   --demo            conexiones y datos de ejemplo, sin red
   --render AxB      pintar un fotograma de A columnas por B filas como HTML y salir
   --keys TECLAS     (con --render) teclas a pulsar antes de pintar: letras y {enter} {esc} {tab} {up}…
+  DBVIEW_RENDER_WAIT_MS  (con --render) ms que se espera a la IA tras {enter}/{f5}
   -V, --version     versión
 
 Configuración: ~/.config/herdr-dbview/config.toml  ·  IA: DBVIEW_AI_MODEL, DBVIEW_AI_API_URL,
@@ -172,7 +173,13 @@ fn render_html(app: &mut App, w: u16, h: u16, keys: &str, demo: bool) -> anyhow:
         app.on_event(Event::Key(KeyEvent::new(code, mods)));
         pump(
             app,
-            if demo {
+            if let Some(ms) = std::env::var("DBVIEW_RENDER_WAIT_MS")
+                .ok()
+                .and_then(|v| v.parse::<u64>().ok())
+                .filter(|_| slow)
+            {
+                ms
+            } else if demo {
                 400
             } else if slow {
                 9000

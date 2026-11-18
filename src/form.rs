@@ -1,4 +1,4 @@
-//! Formulario de conexión (nueva / editar), con «Probar conexión» al estilo DBeaver.
+//! Formulario de conexión (nueva / editar), con «Probar conexión».
 
 use crate::editor::Editor;
 use crate::model::*;

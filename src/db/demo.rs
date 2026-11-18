@@ -206,14 +206,14 @@ pub fn connections() -> Vec<ConnSpec> {
     vec![
         demo(
             "demo-ventas",
-            "Ventas · DESARROLLO",
+            "Tienda online · DESARROLLO",
             Dialect::Postgres,
             EnvKind::Dev,
             "ventas",
         ),
         demo(
             "demo-clientes",
-            "Clientes · PRODUCCIÓN",
+            "Tienda online · PRODUCCIÓN",
             Dialect::Postgres,
             EnvKind::Prod,
             "clientes",
@@ -2211,7 +2211,7 @@ mod tests {
         let connections = connections();
         assert_eq!(connections.len(), 3);
         assert!(connections.iter().all(|spec| spec.host == "demo"));
-        assert_eq!(connections[0].info.label, "Ventas · DESARROLLO");
+        assert_eq!(connections[0].info.label, "Tienda online · DESARROLLO");
         assert_eq!(connections[1].info.env, EnvKind::Prod);
         assert_eq!(connections[2].info.dialect, Dialect::Oracle);
         assert_eq!(connections[2].info.target, "demo/CATASTRO");

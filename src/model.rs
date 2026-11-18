@@ -101,7 +101,7 @@ pub struct ResultSet {
     pub elapsed_ms: u64,
 }
 
-/// Error de base de datos, tal como lo enseñaría DBeaver.
+/// Error de base de datos.
 #[derive(Clone, Debug, Default, PartialEq)]
 pub struct DbError {
     /// Mensaje principal, en el idioma de la base (`column "x" does not exist`).

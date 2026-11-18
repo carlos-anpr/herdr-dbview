@@ -11,7 +11,7 @@ use std::sync::{Arc, atomic::AtomicBool};
 /// Una conexión viva (o capaz de abrirse sola al primer uso).
 pub trait Database: Send {
     fn dialect(&self) -> Dialect;
-    /// «Probar conexión» al estilo DBeaver: conecta y devuelve la versión del servidor
+    /// «Probar conexión»: conecta y devuelve la versión del servidor
     /// (`PostgreSQL 16.14`, `Oracle Database 19c…`). Errores de red/credenciales → `DbError::conn`.
     fn check(&mut self) -> Result<String, DbError>;
     /// Lee el catálogo (tablas, vistas y columnas; sin esquemas de sistema).

@@ -82,7 +82,7 @@ pub struct TableView {
     pub page_cols: usize,
 }
 
-/// Una pestaña de consulta (al estilo DBeaver): pregunta ①, SQL ② y resultado ③ van siempre juntos.
+/// Una pestaña de consulta: pregunta ①, SQL ② y resultado ③ van siempre juntos.
 pub struct Tab {
     /// Número visible y estable (`Consulta 3`, `SQL 3`); no se reutiliza al cerrar pestañas.
     pub num: usize,

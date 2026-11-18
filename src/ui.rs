@@ -1126,7 +1126,7 @@ enum TabKind {
     Sql,
 }
 
-/// Tira de pestañas al estilo DBeaver: ` nombre ✕ ` por pestaña y `+` para abrir otra.
+/// Tira de pestañas: ` nombre ✕ ` por pestaña y `+` para abrir otra.
 /// Las dos tiras (① y ②) enseñan las mismas pestañas: elegir una cambia también el SQL y el resultado.
 fn draw_tabs(f: &mut Frame, app: &mut App, row: Rect, kind: TabKind) {
     if row.width < 12 || row.height == 0 {
